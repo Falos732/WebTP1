@@ -10,10 +10,13 @@
 <body>
     <div id="repos">
         <p>Vos repertoire</p>
-        <a href="">repos1</a>
-        <a href="">repos2</a>
-        <a href="">repos3</a>
-        <a href="">repos4</a>
+        <?php
+        for($i; $i<5; $i++)
+        {
+            echo"<a href='repos.php?nom=repos$i'>repos$i</a>";
+            //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
+        }
+        ?>
     </div>
     <div id="communaute">
         <p>communauté</p>
@@ -22,7 +25,7 @@
         <p>repos suivi</p>
     </div>
     
-    <!-- communauté au millieu
+    <!-- communauté au millieu (annonce repos populaire)
         repos personnel a gauche (boutton) 
         repos suivi a gauche (dernier commit)
         (generer avec du php)

@@ -3,7 +3,6 @@
 }
 
 body{
-    position: fixed;
     height: 100%;
     width: 100%;
     margin: 0; 
@@ -11,7 +10,7 @@ body{
     flex-direction: column;
 }
 
-.login-text{
+.connexion-texte{
     position: relative;
     top: var(--offset);
     display: flex;
@@ -19,7 +18,7 @@ body{
     padding: 10px; 
     margin: 0 auto; 
 }
-.login {
+.connexion {
     position: relative;
     top: var(--offset);
     display: flex;
@@ -33,19 +32,19 @@ body{
     width: 250px;
     margin: 10px auto; 
 }
-.login-prompt{
+.connexion-prompt{
     padding: 0px;
     margin: 0px;
     font-size: 18px;
 }
-.login-input{
+.connexion-input{
     margin: 10px 0 20px 0;
     width: 98%;  
     border: 1px solid black;
     border-radius: 5px;
     height: 20px;  
 }
-.login-button{
+.connexion-button{
     margin: -5px 0 0 0;
     width: 100%;  
     height: 40px;  
@@ -57,11 +56,11 @@ body{
     border: none;
     border-radius: 12px;
 }
-.login-button:hover {
+.connexion-button:hover {
     background-color: #017707;
 }
 
-.login-signup{
+.connexion-inscription{
     position: relative;
     top: var(--offset);
     display: flex;
@@ -81,7 +80,7 @@ body{
 
 
 
-.signup-text{
+.inscription-text{
     position: relative;
     display: flex;
     justify-content: right; 
@@ -89,7 +88,7 @@ body{
     right: 25px;
     margin: 0 auto; 
 }
-.signup {
+.inscription {
     position: relative;
     display: flex;
     flex-direction: column; 
@@ -100,7 +99,7 @@ body{
     height: 100%;
     margin: 0px auto 0px auto; 
 }
-.signup-form {
+.inscription-form {
     position: relative;
     display: flex;
     flex-direction: column; 
@@ -109,19 +108,19 @@ body{
     width: 60%;
     margin: 10px auto; 
 }
-.signup-prompt{
+.inscription-prompt{
     padding: 0px;
     margin: 0px;
     font-size: 18px;
 }
-.signup-input{
+.inscription-input{
     margin: 10px 0 20px 0;
     width: 98%;  
     border: 1px solid rgb(112, 112, 112);
     border-radius: 5px;
     height: 30px;  
 }
-.signup-button{
+.inscription-button{
     margin: -5px 0 0 0;
     width: 100%;  
     height: 40px;  
@@ -133,6 +132,102 @@ body{
     border: none;
     border-radius: 12px;
 }
-.signup-button:hover {
+.inscription-button:hover {
     background-color: #242424;
+}
+#repos-nom
+{
+    margin: 10px 0px 10px 5%; 
+}
+#contenant-fichier
+{
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    align-items: start;   
+    padding: 0px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 60%;
+    margin: 10px 0px 100px 5%; 
+}
+#entête-commit
+{
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;   
+    padding: 20px; 
+    border-bottom: 1px solid #ccc; 
+    width: 100%;
+    margin: 0; 
+}
+.fichier
+{
+    position: relative;
+    display: flex;
+    flex-direction: row; 
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;   
+    padding: 10px 20px 10px 20px; 
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9; 
+    width: 100%;
+    margin: 0; 
+}
+
+#contenu-fichier
+{
+    position: relative;
+    white-space: pre;
+    display: flex;
+    flex-direction: column; 
+    align-items: start;   
+    padding: 0px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 75%;
+    margin: 0px auto 100px auto; 
+}
+.texte
+{
+    margin: 25px;
+}
+#fichier-nom
+{
+    margin: 25px auto; 
+}
+
+.fil-ariane {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+.fil-ariane li {
+  display: inline;
+  font-size: 18px;
+}
+
+.fil-ariane li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+.fil-ariane li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+.fil-ariane li a:hover {
+  color: #01447e;
+  text-decoration: underline;
 }
