@@ -3,11 +3,28 @@
 }
 
 body{
+    position: fixed;
     height: 100%;
     width: 100%;
     margin: 0; 
     display: flex;
+}
+
+.body-fixed-column
+{
+    position: fixed;
     flex-direction: column;
+}
+
+.body-column
+{
+    position: relative;
+    flex-direction: column;
+}
+
+.body-fixed
+{
+    position: fixed;
 }
 
 .connexion-texte{
@@ -80,7 +97,7 @@ body{
 
 
 
-.inscription-text{
+.formulaire-creation-text{
     position: relative;
     display: flex;
     justify-content: right; 
@@ -88,7 +105,7 @@ body{
     right: 25px;
     margin: 0 auto; 
 }
-.inscription {
+.formulaire-creation {
     position: relative;
     display: flex;
     flex-direction: column; 
@@ -99,7 +116,7 @@ body{
     height: 100%;
     margin: 0px auto 0px auto; 
 }
-.inscription-form {
+.creation-formulaire {
     position: relative;
     display: flex;
     flex-direction: column; 
@@ -135,6 +152,53 @@ body{
 .inscription-button:hover {
     background-color: #242424;
 }
+
+#repos {
+    flex: 1;/*   20%   */
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#suivi {
+    flex: 1; /*   20%   */
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    margin: 0px 0px 0px auto;
+}
+
+#communaute {
+    flex: 3;/*   20%*3   */
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;   
+}
+#communaute p{
+    font-size: 50px;
+    color: red;
+    margin: 0px;
+}
+
+#nouvelle-repos-div
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.creer-repos-button {
+    position: relative;
+    background-color: rgb(3, 172, 3);
+    width: 80px;
+    height: 25px;
+    margin-left: auto;
+}
+
 #repos-nom
 {
     margin: 10px 0px 10px 5%; 

@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./tableauDeBord.css">
-    <script src="./script.js?n=1"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js?n=1"></script>
     <title>home</title>
 </head>
-<body>
+<body class="body-fixed">
     <div id="repos">
-        <p>Vos repertoire</p>
+        <div id="nouvelle-repos-div">
+            <p>Vos repertoire</p>
+            <Button onclick="window.location.href = 'creerRepos.html';"  class="creer-repos-button">Nouveau</Button>
+        </div>
         <?php
         for($i; $i<5; $i++)
         {
-            echo"<a href='repos.php?nom=repos$i'>repos$i</a>";
+            echo"<a href='/html/repos.php?reposNom=repos$i'>repos$i</a>";
             //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
         }
         ?>
