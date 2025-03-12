@@ -1,13 +1,17 @@
 :root{
     --offset: 50px
 }
-
 body{
     position: fixed;
     height: 100%;
     width: 100%;
     margin: 0; 
     display: flex;
+}
+
+.fil-ariane form
+{
+    display: inline;
 }
 
 .body-fixed-column
@@ -168,21 +172,44 @@ body{
     border: 1px solid #ccc; 
     margin: 0px 0px 0px auto;
 }
-
 #communaute {
+    overflow-y: scroll;
     flex: 3;/*   20%*3   */
     padding: 20px; 
     border: 1px solid #ccc; 
     margin: 0px auto;
     display: flex;
-    justify-content: center;   
+    flex-direction: column;
+    align-items: center;  
 }
-#communaute p{
+#communaute-texte{
     font-size: 50px;
     color: red;
     margin: 0px;
 }
-
+.message
+{
+    position: relative;
+    align-items: start;   
+    padding: 10px; 
+    box-sizing: border-box;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 100%;
+    height: auto;
+    margin: 10px auto; 
+}
+.message-titre
+{
+    margin: 0;
+    justify-self: center;
+}
+.message-texte
+{
+    margin: 10px 0px;
+}
 #nouvelle-repos-div
 {
     width: 100%;
@@ -190,15 +217,40 @@ body{
     flex-direction: row;
     align-items: center;
 }
-
 .creer-repos-button {
     position: relative;
-    background-color: rgb(3, 172, 3);
+    background-color: #008f07;
+    border: 0px;
     width: 80px;
     height: 25px;
     margin-left: auto;
 }
+.creer-repos-button:hover {
+    position: relative;
+    background-color: #008106;
+}
+/* c'est le form dans tableau de bord pour afficher les repos */
+.repos-nom 
+{
+    position: relative;
+    align-items: center;
+    padding: 0px; 
+    width: 100%;
+    margin: 0; 
+}
+.repos-nom p
+{
+    text-decoration: none;
+    padding: 0px; 
+    margin: 0; 
+}
+.repos-nom p:hover
+{
+    text-decoration: underline;
+}
 
+
+/* c'est le text du nom de la repos dans repos.php */
 #repos-nom
 {
     margin: 10px 0px 10px 5%; 
@@ -233,17 +285,25 @@ body{
 .fichier
 {
     position: relative;
-    display: flex;
-    flex-direction: row; 
     box-sizing: border-box;
-    align-items: center;
-    justify-content: space-between;   
+    align-items: center; 
     padding: 10px 20px 10px 20px; 
     border-bottom: 1px solid #ccc;
     background-color: #f9f9f9; 
     width: 100%;
     margin: 0; 
 }
+.fichier p
+{
+    padding: 0px; 
+    margin: 0; 
+}
+.fichier:hover
+{
+    background-color: #eeeeee;
+}
+
+
 
 #contenu-fichier
 {
@@ -269,28 +329,27 @@ body{
     margin: 25px auto; 
 }
 
+
+
+
 .fil-ariane {
   padding: 10px 16px;
   list-style: none;
   background-color: #eee;
 }
-
 .fil-ariane li {
   display: inline;
   font-size: 18px;
 }
-
 .fil-ariane li+li:before {
   padding: 8px;
   color: black;
   content: "/\00a0";
 }
-
 .fil-ariane li a {
   color: #0275d8;
   text-decoration: none;
 }
-
 .fil-ariane li a:hover {
   color: #01447e;
   text-decoration: underline;

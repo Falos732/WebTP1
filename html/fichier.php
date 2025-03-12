@@ -1,6 +1,6 @@
 <?php
-    $reposNom = $_GET['reposNom'];
-    $fichierNom = $_GET['fichierNom'];
+    $reposNom = $_POST['reposNom'];
+    $fichierNom = $_POST['fichierNom'];
 ?>
 <!-- 
  cette page devrait etre generer a partir d'une base de donner
@@ -16,9 +16,14 @@
 </head>
 <body class="body-column">
     <ul class="fil-ariane">
-      <li><a href="tableauDeBord.php">Tableau de bord</a></li>
-      <li><a class="repos-nom-ariane" href=<?php echo "repos.php?reposNom=$reposNom";?>><?php echo $reposNom;?></a></li>
-      <li id="fichier-nom"><?php echo $fichierNom; ?></li>
+        <li><a href="tableauDeBord.php">Tableau de bord</a></li>
+        <li class='repos-nom-ariane'>
+            <form method='POST' action='/html/repos.php' onclick='this.submit()' >
+                <input type='hidden' name='reposNom' value=<?php echo "$reposNom";?>>
+                    <?php echo "$reposNom";?>
+            </form>
+        </li>
+        <li id="fichier-nom"><?php echo $fichierNom; ?></li>
     </ul>
     <div id="contenu-fichier">
         <div id="entête-commit">

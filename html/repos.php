@@ -1,5 +1,5 @@
 <?php
-$reposNom = $_GET['reposNom'];
+$reposNom = $_POST['reposNom'];
 ?>
 <!-- 
  cette page devrait etre generer a partir d'une base de donner
@@ -27,9 +27,13 @@ $reposNom = $_GET['reposNom'];
             <p>il y a 15 minute</p>
         </div>
         <?php
-        for($i; $i<20; $i++)
+        for($i=0; $i<20; $i++)
         {
-            echo"<a class='fichier' href='/html/fichier.php?fichierNom=fichiertest$i&reposNom=$reposNom'>fichiertest$i</a>";
+            echo "<form method='POST' action='/html/fichier.php' onclick='this.submit()' class='fichier'>";
+            echo "<input type='hidden' name='fichierNom' value='fichiertest$i'>";
+            echo "<input type='hidden' name='reposNom' value='$reposNom'>";
+            echo "<p>fichiertest$i</p>";
+            echo "</form>";
             //nom serait le nom du fichier obtenu par la base de donner pour que la page fichier.php sache quoi afficher
         }
         ?>
