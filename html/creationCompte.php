@@ -10,15 +10,15 @@
 <body class="body-fixed-column">
     <div class="formulaire-creation">
         <h1 class="formulaire-creation-text">Création de compte</h1>
-        <div class="creation-formulaire">
+        <form class="creation-formulaire" method="post" action="../php/creerCompte.php">
             <p class="inscription-prompt">Email</p>
             <input type="email" name="inscription-email" class="inscription-input"/>
             <p class="inscription-prompt">Mot de passe</p>
-            <input type="password" name="inscription-password" class="inscription-input"/>
+            <input type="password" name="inscription-mdp" class="inscription-input"/>
             <p class="inscription-prompt">Pseudonyme</p>
-            <input type="password" name="inscription-password" class="inscription-input"/>
-            <Button onclick=""  class="inscription-button">continuer</Button>
-        </div>
+            <input type="text" name="inscription-pseudo" class="inscription-input"/>
+            <input type="submit" value="Continuer"  class="inscription-button"/>
+        </form>
     </div>
 </body>
 </html>

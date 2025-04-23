@@ -9,28 +9,27 @@
 </head>
 <body class ="body-fixed-column">
     <h1 class="connexion-texte">Connexion</h1>
-    <div class="connexion">
+    <form class="connexion" method="post" action="../php/connecterCompte.php">
         <p class="connexion-prompt">Email</p>
         <input type="email" name="connexion-email" class="connexion-input"/>
         <p class="connexion-prompt">Mot de passe</p>
         <input type="password" name="connexion-mdp" class="connexion-input"/>
-        <Button onclick="Connexion()"  class="connexion-button">connexion</Button>
-    </div>
+        <input type="submit" value="connexion"  class="connexion-button"/>
+    </form>
     <div class="connexion-inscription">
         <p class="connexion-prompt">Vous n'avez pas de compte ?</p>
-        <a href="/html/creationCompte.html" class="connexion-prompt">créer un compte</a>
+        <a href="/html/creationCompte.php" class="connexion-prompt">créer un compte</a>
     </div>
     <?php
         include_once __DIR__.'/donnees/bdcodehub.include.php';
         try {
-            $user = selectById(0);
+            $user = selectById(3);
     
             echo "<p>".$user->ID."</p>";
+            echo "<p>".$user->nom."</p>";
             echo "<p>".$user->email."</p>";
             echo "<p>".$user->mdp."</p>";
             
-            echo $html;
-    
         } catch (Exception $e) {
             error_log("Exception pdo: ".$e->getMessage());
         }
