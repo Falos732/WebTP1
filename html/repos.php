@@ -1,5 +1,10 @@
 <?php
-$reposNom = $_POST['reposNom'];
+    require_once __DIR__."/../controller/SessionFinale.controller.php";
+    
+    $session = new SessionFinale();
+    session_start();
+    $session->validerSession();
+    $reposNom = $_POST['reposNom'];
 ?>
 <!-- 
  cette page devrait etre generer a partir d'une base de donner

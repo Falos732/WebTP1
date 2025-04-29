@@ -1,4 +1,10 @@
 <?php
+    require_once __DIR__."/../controller/SessionFinale.controller.php";
+    
+    $session = new SessionFinale();
+    session_start();
+    $session->validerSession();
+    
     $reposNom = $_POST['reposNom'];
     $fichierNom = $_POST['fichierNom'];
 ?>

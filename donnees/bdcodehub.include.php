@@ -29,13 +29,14 @@ function selectByEmail(string $email)
         $maConnexionPDO = getConnexionBd(false);
         $pdoRequete = $maConnexionPDO->prepare("select * from Utilisateurs where email=:email");
 
-        $pdoRequete->bindParam(":email",$email,PDO::PARAM_INT);
+        $pdoRequete->bindParam(":email", $email, PDO::PARAM_STR);
     
         $pdoRequete->execute();
 
         return $pdoRequete->fetch(PDO::FETCH_OBJ);
 
-    } catch (Exception $e) {
+    } 
+    catch (Exception $e) {
         error_log("Exception pdo: ".$e->getMessage());
     }
 
