@@ -1,28 +1,7 @@
 <?php
 require_once __DIR__.'/config.bd.include.php';
 
-
-/** Retourne le id et le nom d'un enregistrement selon le id */
-function selectById(int $id)
-{
-    try {
-    
-        $maConnexionPDO = getConnexionBd(false);
-        $pdoRequete = $maConnexionPDO->prepare("select * from Utilisateurs where id=:id");
-
-        $pdoRequete->bindParam(":id",$id,PDO::PARAM_INT);
-    
-        $pdoRequete->execute();
-
-        return $pdoRequete->fetch(PDO::FETCH_OBJ);
-
-    } catch (Exception $e) {
-        error_log("Exception pdo: ".$e->getMessage());
-    }
-
-}
-
-function selectByEmail(string $email)
+function selectUtilisateurByEmail(string $email)
 {
     try {
     
@@ -42,7 +21,7 @@ function selectByEmail(string $email)
 
 }
 
-function selectTout()
+function selectUtilisateurTout()
 {
     try {
 
@@ -73,6 +52,21 @@ function insertUtilisateur(string $nom,string $email,string $mdp)
         $pdoRequete->bindParam(':mdp', $mdp, PDO::PARAM_STR);
         $pdoRequete->execute();        
 
+    } catch (Exception $e) {
+        error_log("Exception pdo: ".$e->getMessage());
+    }
+}
+
+function selectReposByUtilisateur($ID)
+{
+    try {
+
+        $maConnexionPDO = getConnexionBd(false);
+        $pdoRequete = $maConnexionPDO->prepare("SELECT R.* FROM Repos R JOIN Utilisateurs U WHERE U.ID = :ID;");
+        $pdoRequete->bindParam(":ID", $ID, PDO::PARAM_STR);
+        $pdoRequete->execute();
+
+        return $pdoRequete->fetchAll(PDO::FETCH_OBJ);
     } catch (Exception $e) {
         error_log("Exception pdo: ".$e->getMessage());
     }

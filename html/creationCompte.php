@@ -10,7 +10,7 @@
 <body class="body-fixed-column">
     <div class="formulaire-creation">
         <h1 class="formulaire-creation-text">Création de compte</h1>
-        <form class="creation-formulaire" method="post" action="../php/creerCompte.php">
+        <form class="creation-formulaire" method="post" action="../UtilisateurRedirect/creerCompte.redirect.php">
             <p class="inscription-prompt">Email</p>
             <input type="email" name="inscription-email" class="inscription-input"/>
             <p class="inscription-prompt">Mot de passe</p>

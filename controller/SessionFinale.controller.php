@@ -11,7 +11,7 @@ class SessionFinale extends Session
      */
     public function __construct()
     {        
-        session_name("finale");
+        session_name("session");
         parent::__construct();      
     }
 
@@ -19,11 +19,12 @@ class SessionFinale extends Session
     /**
      * Affecte les valeurs nécessaires à la validation de la session complète.
      */
-    public function setSession(string $p, string $remote)
+    public function setSession(string $p, string $remote, $ID)
     {
         $_SESSION['courriel'] = $p;
         $_SESSION['ip'] = $remote;
         $_SESSION['delai'] = time();
+        $_SESSION['ID'] = $ID;
     }
 
 
@@ -36,7 +37,7 @@ class SessionFinale extends Session
         {
             if (session_status() == PHP_SESSION_ACTIVE){
                 
-                if (!isset($_SESSION['courriel']) || !isset($_SESSION['ip']) || !isset($_SESSION['delai']))
+                if (!isset($_SESSION['courriel']) || !isset($_SESSION['ip']) || !isset($_SESSION['delai']) || !isset($_SESSION['ID']))
                 {
                     $this->supprimer();
                     error_log("[".date("d/m/o H:i:s e",time())."] Accès directe refusée au requérant ".$_SERVER['REMOTE_ADDR']."\n\r",3, __DIR__."/../../logs/CodeHub.acces.log");

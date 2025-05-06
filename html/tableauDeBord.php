@@ -1,10 +1,10 @@
 <?php
+    include_once __DIR__.'/../donnees/bdcodehub.include.php';
     require_once __DIR__."/../controller/SessionFinale.controller.php";
     
     $session = new SessionFinale();
     session_start();
     $session->validerSession();
-
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +23,18 @@
             <Button onclick="window.location.href = 'creerRepos.html';"  class="creer-repos-button">Nouveau</Button>
         </div>
         <?php
-        for($i=0; $i<5; $i++)
+        $repos = selectReposByUtilisateur($_SESSION['ID']);
+        if ($repos)
         {
-            echo "<form method='POST' action='/html/repos.php' onclick='this.submit()' class='repos-nom'>";
-            echo "<input type='hidden' name='reposNom' value='repos$i'>";
-            echo "<p>repos$i</p>";
-            echo "</form>";
-            //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
+            foreach($repos as $r)
+            {
+                $nom = htmlspecialchars($r->Nom); // sécurise l'affichage
+                echo "<form method='POST' action='/html/repos.php' onclick='this.submit()' class='repos-nom'>";
+                echo "<input type='hidden' name='reposNom' value='$nom'>";
+                echo "<p>$nom</p>";
+                echo "</form>";
+                //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
+            }
         }
         ?>
     </div>

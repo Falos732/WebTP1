@@ -25,7 +25,8 @@ abstract class Session
     /**
      * Affecte les valeurs nécessaires à la validation de la session selon l'étape de la session.
      */
-    public abstract function setSession(string $p, string $remote);
+    public abstract function setSession(string $p, string $remote, $ID);
+
 
 
     /**
