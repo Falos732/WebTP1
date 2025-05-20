@@ -1,19 +1,16 @@
-<?php
-        session_start();
-        echo $_SESSION['code'];
-?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link rel="stylesheet" href="../css/style.css">
+        <title>Vérification 2FA</title>
     </head>
-    <body>
-        <form method="post" action="2FAVerification.redirect.php">
-            <p>Un code a été envoyé à votre adresse courriel.</p>
-            <label for="code">Code de vérification :</label>
-            <input type="text" name="code" id="code" required>
-            <input type="submit" value="Vérifier">
+    <body class ="body-fixed-column">
+        <h1 class="connexion-texte">Un code a été envoyé à votre adresse courriel.</h1>
+        <form class="connexion" method="post" action="2FAVerification.redirect.php">
+            <label class="connexion-prompt" for="code">Code de vérification :</label>
+            <input type="text" class="connexion-input" name="code" id="code" required>
+            <input type="submit" value="Vérifier" class="connexion-button">
         </form>
         
     </body>

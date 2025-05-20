@@ -10,9 +10,11 @@
 <body class="body-fixed-column">
     <div class="formulaire-creation">
         <h1 class="formulaire-creation-text">Création de répertoire</h1>
-        <form action="/php/creerRepertoire.php" method="post" class="creation-formulaire">
+        <form action="/php/creerRepos.php" method="post" class="creation-formulaire">
             <p class="repos-prompt">Nom du répertoire</p>
-            <input type="text" name="repertoire-nom" class="inscription-input"/>
+            <input type="text" name="reposNom" class="inscription-input"/>
+            <p class="repos-prompt">Description du répertoire</p>
+            <input type="text" name="reposDescription" class="inscription-input"/>
             <button type="submit"  class="inscription-button">continuer</button>
         </form>
     </div>

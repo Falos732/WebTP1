@@ -20,7 +20,7 @@
     <div id="repos">
         <div id="nouvelle-repos-div">
             <p>Vos repertoires</p>
-            <Button onclick="window.location.href = 'creerRepos.html';"  class="creer-repos-button">Nouveau</Button>
+            <Button onclick="window.location.href = 'nouveauRepos.php';"  class="creer-repos-button">Nouveau</Button>
         </div>
         <?php
         $repos = selectReposByUtilisateur($_SESSION['ID']);
@@ -28,12 +28,15 @@
         {
             foreach($repos as $r)
             {
-                $nom = htmlspecialchars($r->Nom); // sécurise l'affichage
-                echo "<form method='POST' action='/html/repos.php' onclick='this.submit()' class='repos-nom'>";
+                $nom = htmlspecialchars($r->Nom);
+                $ID = htmlspecialchars($r->ID);
+                $description = htmlspecialchars($r->Description);
+                echo "<form method='GET' action='/html/repos.php' onclick='this.submit()' class='repos-nom'>";
                 echo "<input type='hidden' name='reposNom' value='$nom'>";
+                echo "<input type='hidden' name='reposDescription' value='$description'>";
+                echo "<input type='hidden' name='reposID' value='$ID'>";
                 echo "<p>$nom</p>";
                 echo "</form>";
-                //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
             }
         }
         ?>
@@ -42,12 +45,26 @@
         <p id="communaute-texte">communauté</p>
         
         <?php
+        $repos = selectReposTout();
+        if ($repos)
+        {
+            foreach($repos as $r)
+            {
+                $ID = htmlspecialchars($r->ID);
+                $nom = htmlspecialchars($r->Nom);
+                $description = htmlspecialchars($r->Description);
+                echo "<form method='GET' action='/html/repos.php' onclick='this.submit()' class='message'>";
+                echo "<input type='hidden' name='reposNom' value='$nom'>";
+                echo "<input type='hidden' name='reposDescription' value='$description'>";
+                echo "<input type='hidden' name='reposID' value='$ID'>";
+                echo "<h1 class='message-titre'>$nom</h1>";
+                echo "<p class='message-texte'>$description</p>";
+                echo "</form>";
+            }
+        }
         for($i=0; $i<10; $i++)
         {
-            echo "<div class = 'message'>";
-            echo "<h1 class='message-titre'>Test$i</h1>";
-            echo "<p class='message-texte'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat pulvinar erat et suscipit. In varius tortor vel pulvinar tincidunt. Donec ultrices at mi at iaculis. In tincidunt lacinia semper. In ac fringilla ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse sagittis tellus ut ante facilisis accumsan. Mauris et risus quis dolor vulputate suscipit eget at est. Phasellus porta laoreet vulputate. Morbi sit amet aliquam erat.</p>";
-            echo "</div>";
+            
             //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
         }
         ?>
@@ -55,13 +72,22 @@
     <div id="repos">
         <p>repertoires suivi</p>
         <?php
-        for($i=5; $i<10; $i++)
+        $repos = selectReposSuiviByUtilisateur($_SESSION['ID']);
+        if ($repos)
         {
-            echo "<form method='POST' action='/html/repos.php' onclick='this.submit()' class='repos-nom'>";
-            echo "<input type='hidden' name='reposNom' value='repos$i'>";
-            echo "<p>repos$i</p>";
-            echo "</form>";
-            //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
+            foreach($repos as $r)
+            {
+                $ID = htmlspecialchars($r->ID);
+                $nom = htmlspecialchars($r->Nom);
+                $description = htmlspecialchars($r->Description);
+                echo "<form method='GET' action='/html/repos.php' onclick='this.submit()' class='repos-nom'>";
+                echo "<input type='hidden' name='reposNom' value='$nom'>";
+                echo "<input type='hidden' name='reposDescription' value='$description'>";
+                echo "<input type='hidden' name='reposID' value='$ID'>";
+                echo "<p>$nom</p>";
+                echo "</form>";
+                //nom serait le nom de la repos obtenu par la base de donner pour que la page repos.php sache quoi afficher
+            }
         }
         ?>
     </div>

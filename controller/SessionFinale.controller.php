@@ -27,10 +27,6 @@ class SessionFinale extends Session
         $_SESSION['ID'] = $ID;
     }
 
-
-    /**
-     * Récupère la session active et vérifie la validité avec les variables $_SESSSION
-     */
     public function validerSession()
     {
         try 
@@ -49,7 +45,6 @@ class SessionFinale extends Session
                     error_log("[".date("d/m/o H:i:s e",time())."] Session expirée : Requérant ".$_SERVER['REMOTE_ADDR']."Client authorisé: ".$_SESSION['courriel']."\n\r" ,3, __DIR__."/../../logs/CodeHub.acces.log");
                     header("Location: ../index.php?session=expire");
                     exit();
-                    
                 }
 
             } else {

@@ -1,3 +1,18 @@
+<?php 
+$erreur = $_GET['erreur'];
+if (isset($erreur))
+{
+    if ($erreur == "courriel_utilise")
+    {
+        echo "<script>alert('Le courriel est déjà utilisé');</script>";
+    }
+    else if ($erreur == "champs_vides")
+    {
+        echo "<script>alert('Il y a des champs vides');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +26,12 @@
     <div class="formulaire-creation">
         <h1 class="formulaire-creation-text">Création de compte</h1>
         <form class="creation-formulaire" method="post" action="../UtilisateurRedirect/creerCompte.redirect.php">
-            <p class="inscription-prompt">Email</p>
-            <input type="email" name="inscription-email" class="inscription-input"/>
+            <p class="inscription-prompt">Courriel</p>
+            <input type="email" name="inscription-courriel" class="inscription-input" require/>
             <p class="inscription-prompt">Mot de passe</p>
-            <input type="password" name="inscription-mdp" class="inscription-input"/>
+            <input type="password" name="inscription-mdp" class="inscription-input" require/>
             <p class="inscription-prompt">Pseudonyme</p>
-            <input type="text" name="inscription-pseudo" class="inscription-input"/>
+            <input type="text" name="inscription-pseudo" class="inscription-input" require/>
             <input type="submit" value="Continuer"  class="inscription-button"/>
         </form>
     </div>
